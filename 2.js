@@ -6,7 +6,7 @@ const decodeString = (s) => {
   for ( i = times; i > -1; i-- ) {
     if ( sArray[i].match(/[a-z]/i) ) {
       outputString = sArray[i] + outputString;
-    } else if (!isNaN(sArray[i])) {
+    } else if ( !isNaN(sArray[i]) ) {
       outputString = outputString.repeat(parseInt(sArray[i]));
     }
   }
