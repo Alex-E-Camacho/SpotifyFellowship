@@ -10,19 +10,21 @@ Example: for amount=4 (4¢) and denominations=[1,2,3] (1¢, 2¢ and 3¢), your p
 
 const changePossibilities = (amount, denominations) => {
   let counter = 0;
+
   let helperFunc = (index, value) => {
     let coin = denominations[index];
 
      if( index === 0 ){
       value % coin === 0 ? counter++ : counter ;
       return;
-    }
+     }
 
     while( value >= 0 ){
       helperFunc((index-1), value);
       value -= coin;
     }
   }
+
   helperFunc(denominations.length-1, amount);
   return counter;
 };
